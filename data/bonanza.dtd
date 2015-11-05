@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Barker Bob's Burger Bar's Bigger, Better Burger Bonanza order placement data
+-->
+
+<!ELEMENT order (customer, delivery?, burger+, special)>
+
+<!-- A customer simply has a name -->
+<!ELEMENT customer (#PCDATA)>
+
+<!ATTLIST order
+    type (eatin|takeout|delivery) #REQUIRED
+>
+
+<!-- Delivery instructions -->
+<!ELEMENT delivery (#PCDATA)>
+
+<!-- Special instructions -->
+<!ELEMENT special (#PCDATA)>
