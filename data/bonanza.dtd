@@ -6,7 +6,7 @@ Barker Bob's Burger Bar's Bigger, Better Burger Bonanza order placement data
 <!ELEMENT order ( customer
                 , delivery?
                 , burger+
-                , special )>
+                , special? )>
 
 <!-- A customer simply has a name -->
 <!ELEMENT customer (#PCDATA)>
