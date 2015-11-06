@@ -3,13 +3,18 @@
 Barker Bob's Burger Bar's Bigger, Better Burger Bonanza order placement data
 -->
 
-<!ELEMENT order (customer, delivery?, burger+, special)>
+<!ELEMENT order ( customer
+                , delivery?
+                , burger+
+                , special )>
 
 <!-- A customer simply has a name -->
 <!ELEMENT customer (#PCDATA)>
 
 <!ATTLIST order
-    type (eatin|takeout|delivery) #REQUIRED
+    type ( eatin
+         | takeout
+         | delivery ) #REQUIRED
 >
 
 <!-- Delivery instructions -->
@@ -17,3 +22,57 @@ Barker Bob's Burger Bar's Bigger, Better Burger Bonanza order placement data
 
 <!-- Special instructions -->
 <!ELEMENT special (#PCDATA)>
+
+<!ELEMENT burger ( patty
+                 , cheeses
+                 , topping*
+                 , sauce*
+                 , instructions?
+                 , name? )>
+
+<!-- default to beef -->
+<!ELEMENT patty (#PCDATA)>
+<!ATTLIST patty
+    type ( beef
+         | pork
+         | turkey
+         | bison
+         | vege ) "beef"
+>
+
+<!-- customer can order two cheeses -->
+<!ELEMENT cheeses EMPTY>
+<!ATTLIST cheeses
+    top    ( american | swiss | jack | blue | gruyere | gouda | aged | goat | brie ) #IMPLIED
+    bottom ( american | swiss | jack | blue | gruyere | gouda | aged | goat | brie ) #IMPLIED
+>
+
+<!ELEMENT topping (#PCDATA)>
+<!ATTLIST topping
+    type ( lettuce
+         | tomato
+         | raw
+         | dill
+         | roasted
+         | shrooms
+         | salsa
+         | bacon
+         | chilies
+         | fkchili
+         | avocado
+         | egg
+         | porkbelly ) #REQUIRED
+>
+
+<!ELEMENT sauce EMPTY>
+<!ATTLIST sauce
+    type ( ketchup
+         | mustard
+         | mayo
+         | fksauce ) #REQUIRED
+>
+
+<!-- anyting -->
+<!ELEMENT instructions (#PCDATA)>
+
+<!ELEMENT name (#PCDATA)>
